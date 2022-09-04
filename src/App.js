@@ -1,25 +1,51 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {Component} from "react";
+import FormParent from "./components/FormParent.js"
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component{
+  constructor(){
+    super();
+    this.state={
+      basicInfo:
+      {name:'',
+        phone:'',
+        title:''
+      },
+    }
+    this.handleName = this.handleName.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+
+  }
+  handleName = (e) =>{
+    this.setState({
+      basicInfo:{
+        ...this.state.basicInfo,
+        name: e.target.value
+      }
+    })
+  }
+  handleTitle = (e) =>{
+    this.setState({
+      basicInfo:{
+        ...this.state.basicInfo,
+        title:e.target.value
+      }
+    })
+    console.log(this.state.basicInfo.name);
+  }
+  render(){
+    return(
+      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <FormParent basicInfo={this.state.basicInfo} handleName = {this.handleName} handleTitle = {this.handleTitle}/>
+        {this.state.basicInfo.name}
+        {this.state.basicInfo.title}
+    
       </header>
     </div>
-  );
+    )
+  }
 }
 
 export default App;

@@ -5,12 +5,12 @@ class FormParent extends Component{
         super(props);
     }
     render(){
-        const {handleName, handleTitle, basicInfo} = this.props
+        const {handleInfo, basicInfo} = this.props
         return(
             <div className="form">
                 <form>
-                    <input type="text" onChange = {handleName} value= {basicInfo.name} />
-                    <input type="text" onChange= {handleTitle} value={basicInfo.title} />
+                    <input type="text" id="name" onChange = {handleInfo} value= {basicInfo.name} />
+                    <input type="text" id="title" onChange= {handleInfo} value={basicInfo.title} />
                 </form>
             </div>
         )

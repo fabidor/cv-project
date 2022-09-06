@@ -8,24 +8,24 @@ class App extends Component{
     super();
     this.state={
       basicInfo:
-      {name:'',
+      {name: '',
         phone:'',
         title:''
       },
     }
-    this.handleName = this.handleName.bind(this);
-    this.handleTitle = this.handleTitle.bind(this);
+    this.handleInfo = this.handleInfo.bind(this);
+    /*this.handleTitle = this.handleTitle.bind(this); */
 
   }
-  handleName = (e) =>{
+  handleInfo = (e) =>{
     this.setState({
       basicInfo:{
         ...this.state.basicInfo,
-        name: e.target.value
+        [e.target.id]: e.target.value
       }
     })
   }
-  handleTitle = (e) =>{
+  /*handleTitle = (e) =>{
     this.setState({
       basicInfo:{
         ...this.state.basicInfo,
@@ -33,12 +33,12 @@ class App extends Component{
       }
     })
     console.log(this.state.basicInfo.name);
-  }
+  } */
   render(){
     return(
       <div className="App">
       <header className="App-header">
-        <FormParent basicInfo={this.state.basicInfo} handleName = {this.handleName} handleTitle = {this.handleTitle}/>
+        <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} />
         {this.state.basicInfo.name}
         {this.state.basicInfo.title}
     

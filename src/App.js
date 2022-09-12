@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, {Component} from "react";
 import FormParent from "./components/FormParent.js"
+import uniqid from "uniqid"
 
 class App extends Component{
   constructor(){
@@ -10,11 +11,22 @@ class App extends Component{
       basicInfo:
       {name: '',
         phone:'',
-        title:''
+        title:'',
+        address:'',
+        email: ''
       },
+      experienceRay: [{
+        jobTitle: '',
+        company: '',
+        city: '',
+        from: '',
+        to: '',
+        description: '',
+        id: uniqid()
+      }],
     }
     this.handleInfo = this.handleInfo.bind(this);
-    /*this.handleTitle = this.handleTitle.bind(this); */
+    this.handleExperience=this.handleExperience.bind(this);
 
   }
   handleInfo = (e) =>{
@@ -25,22 +37,26 @@ class App extends Component{
       }
     })
   }
-  /*handleTitle = (e) =>{
+  handleExperience=(e) =>{
+    let experiences = [...this.state.experienceRay];
+    let rayId = e.target.name;
+    let experience = experiences.find(({id}) => id === rayId)
+    let experienceIndex = experiences.indexOf(experience);
+    experience[e.target.id] = e.target.value;
+    
+    
+    experiences[experienceIndex] = experience;
+    
     this.setState({
-      basicInfo:{
-        ...this.state.basicInfo,
-        title:e.target.value
-      }
+      experienceRay: experiences
     })
-    console.log(this.state.basicInfo.name);
-  } */
+  }
   render(){
     return(
       <div className="App">
       <header className="App-header">
-        <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} />
-        {this.state.basicInfo.name}
-        {this.state.basicInfo.title}
+        <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} handleExperience={this.handleExperience} experienceRay= {this.state.experienceRay}/>
+        {this.state.experienceRay[0].jobTitle}
     
       </header>
     </div>

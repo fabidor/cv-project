@@ -27,6 +27,7 @@ class App extends Component{
     }
     this.handleInfo = this.handleInfo.bind(this);
     this.handleExperience=this.handleExperience.bind(this);
+    this.addExperience=this.addExperience.bind(this);
 
   }
   handleInfo = (e) =>{
@@ -51,12 +52,27 @@ class App extends Component{
       experienceRay: experiences
     })
   }
+  addExperience = () => {
+    const exp =  {
+      jobTitle:"",
+      company:'',
+      city:'',
+      from:'',
+      to:'',
+      description:'',
+      id:uniqid()
+    }
+    this.setState({
+      experienceRay: this.state.experienceRay.concat(exp)
+    })
+    console.log(exp)
+  }
   render(){
     return(
       <div className="App">
       <header className="App-header">
-        <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} handleExperience={this.handleExperience} experienceRay= {this.state.experienceRay}/>
-        {this.state.experienceRay[0].jobTitle}
+        <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} handleExperience={this.handleExperience} experienceRay= {this.state.experienceRay} addExperience = {this.addExperience}/>
+      
     
       </header>
     </div>

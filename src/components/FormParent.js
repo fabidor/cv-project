@@ -7,7 +7,7 @@ class FormParent extends Component{
         super(props);
     }
     render(){
-        const {handleInfo, basicInfo, handleExperience, experienceRay, addExperience} = this.props
+        const {handleInfo, basicInfo, handleExperience, experienceRay, addExperience, deleteExperience, handleEducation, educationRay} = this.props
         return(
             <div className="form">
                 <form>
@@ -21,8 +21,7 @@ class FormParent extends Component{
                    { experienceRay.map(experienceObj => {
                     return(
                         <div key = {experienceObj.id}>
-                        <Experience handleExperience={handleExperience} experience={experienceObj} />
-                        <button>Remove Experience</button>
+                        <Experience handleExperience={handleExperience} experience={experienceObj} deleteExperience = {deleteExperience}/>
                     </div>
                     )
                     
@@ -32,6 +31,7 @@ class FormParent extends Component{
                     
                 </div>
                 <button onClick = {addExperience}>Add Experience</button>
+                <button onClick = {handleEducation.addEducation}>Add Education</button>
                 
             </div>
         )

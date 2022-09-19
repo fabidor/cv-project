@@ -5,7 +5,7 @@ class Experience extends Component{
         super(props);
     }
     render(){
-        const{experience, handleExperience} = this.props
+        const{experience, handleExperience, deleteExperience} = this.props
         return(
             <form>
                 <input type="text" name={experience.id} id="jobTitle" onChange={handleExperience} value={experience.jobTitle} placeholder="Job Title:" />
@@ -14,6 +14,7 @@ class Experience extends Component{
                 <input type="text" name={experience.id} id="from" onChange={handleExperience} value={experience.from} placeholder="From:" />
                 <input type="text" name={experience.id} id="to" onChange={handleExperience} value={experience.to} placeholder="To: " />
                 <input type="text" name={experience.id} id="description" onChange={handleExperience} value={experience.description} placeholder="Description: " />
+                <button onClick ={deleteExperience} id={experience.id}>Remove Experience</button>
             </form>
             
         )

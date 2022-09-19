@@ -24,10 +24,22 @@ class App extends Component{
         description: '',
         id: uniqid()
       }],
+      educationRay:[{
+        school: 'One',
+        degType: '',
+        field: '',
+        from: '',
+        to: '',
+        id: uniqid()
+      }]
     }
     this.handleInfo = this.handleInfo.bind(this);
     this.handleExperience=this.handleExperience.bind(this);
     this.addExperience=this.addExperience.bind(this);
+    this.deleteExperience=this.deleteExperience.bind(this);
+    this.handleEducation.addEducation= this.handleEducation.addEducation.bind(this);
+    this.handleEducation.updateEducation = this.handleEducation.updateEducation.bind(this);
+    this.handleEducation.deleteSchool = this.handleEducation.deleteSchool.bind(this);
 
   }
   handleInfo = (e) =>{
@@ -65,13 +77,66 @@ class App extends Component{
     this.setState({
       experienceRay: this.state.experienceRay.concat(exp)
     })
-    console.log(exp)
+
   }
+
+
+  deleteExperience = (e) =>{
+    let experience = this.state.experienceRay.find(({id}) => id == e.target.id
+    )
+    let experienceIndex=this.state.experienceRay.indexOf(experience);
+    let experiences = [...this.state.experienceRay]
+    experiences.splice(experienceIndex, 1);
+    this.setState({
+      experienceRay:experiences
+    })
+  }
+  handleEducation = (() =>{
+    const addEducation = () =>{
+      const educ =  {
+          school: 'Two',
+          degType: '',
+          field: '',
+          from: '',
+          to: '',
+          id:uniqid()
+        }
+        this.setState({
+          educationRay: this.state.educationRay.concat(educ)
+        })
+        
+      }
+      const updateEducation = (e) =>{
+        let schools = [...this.state.educationRay];
+        let rayId = e.target.name;
+        let school = schools.find(({id}) => id === rayId)
+        let schoolIndex = schools.indexOf(school);
+        school[e.target.id] = e.target.value;
+        schools[schoolIndex] = school;
+        
+        this.setState({
+          educationRay: schools
+        })
+      }
+      const deleteSchool = (e) => {
+        let school = this.state.school.find(({id}) => id == e.target.id
+    )
+    let schoolIndex=this.state.experienceRay.indexOf(school);
+    let schools = [...this.state.educationRay]
+    schools.splice(schoolIndex, 1);
+    this.setState({
+      educationRay:schools
+    })
+      }
+      return {addEducation, updateEducation, deleteSchool};
+      
+    })();
+  
   render(){
     return(
       <div className="App">
       <header className="App-header">
-        <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} handleExperience={this.handleExperience} experienceRay= {this.state.experienceRay} addExperience = {this.addExperience}/>
+        <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} handleExperience={this.handleExperience} experienceRay= {this.state.experienceRay} addExperience = {this.addExperience} deleteExperience={this.deleteExperience} handleEducation = {this.handleEducation} educationRay = {this.state.educationRay}/>
       
     
       </header>

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import BasicInfoDisplay from "./basicInfoDisplay.js"
+import ExtraInfoDisplay from "./ExtraInfoDisplay.js"
+import ResumeBody from "./ResumeBody.js"
 
 class DisplayParent extends Component{
     constructor(props){
@@ -10,6 +12,14 @@ class DisplayParent extends Component{
         return(
             <div className="resumeDisplay">
                  <BasicInfoDisplay basicInfo = {basicInfo} />
+                 <div className="resumeBody">
+                    <div className="leftWing">
+                        <ExtraInfoDisplay basicInfo={basicInfo} />
+                    </div>
+                    <div className="resumeBody">
+                        <ResumeBody experiences = {experienceRay} education = {educationRay} />
+                    </div>
+                 </div>
             </div>
             )
     } 

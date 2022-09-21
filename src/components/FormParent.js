@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Experience from "./Experience.js"
+import Education from "./Education.js"
 
 
 class FormParent extends Component{
@@ -31,6 +32,14 @@ class FormParent extends Component{
                     
                 </div>
                 <button onClick = {addExperience}>Add Experience</button>
+                <div>
+                    {educationRay.map(educationObj =>{
+                        return(
+                            <div key={educationObj.id}>
+                                <Education handleEducation={handleEducation} education = {educationObj} />
+                                </div>)
+                    })}
+                </div>
                 <button onClick = {handleEducation.addEducation}>Add Education</button>
                 
             </div>

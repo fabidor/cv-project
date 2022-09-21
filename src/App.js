@@ -3,6 +3,7 @@ import './App.css';
 import React, {Component} from "react";
 import FormParent from "./components/FormParent.js"
 import uniqid from "uniqid"
+import DisplayParent from "./components/DisplayParent.js"
 
 class App extends Component{
   constructor(){
@@ -25,7 +26,7 @@ class App extends Component{
         id: uniqid()
       }],
       educationRay:[{
-        school: 'One',
+        school: '',
         degType: '',
         field: '',
         from: '',
@@ -82,7 +83,7 @@ class App extends Component{
 
 
   deleteExperience = (e) =>{
-    let experience = this.state.experienceRay.find(({id}) => id == e.target.id
+    let experience = this.state.experienceRay.find(({id}) => id === e.target.id
     )
     let experienceIndex=this.state.experienceRay.indexOf(experience);
     let experiences = [...this.state.experienceRay]
@@ -94,7 +95,7 @@ class App extends Component{
   handleEducation = (() =>{
     const addEducation = () =>{
       const educ =  {
-          school: 'Two',
+          school: '',
           degType: '',
           field: '',
           from: '',
@@ -119,9 +120,8 @@ class App extends Component{
         })
       }
       const deleteSchool = (e) => {
-        let school = this.state.school.find(({id}) => id == e.target.id
-    )
-    let schoolIndex=this.state.experienceRay.indexOf(school);
+        let school = this.state.educationRay.find(({id}) => id === e.target.id)
+    let schoolIndex=this.state.educationRay.indexOf(school);
     let schools = [...this.state.educationRay]
     schools.splice(schoolIndex, 1);
     this.setState({
@@ -137,7 +137,7 @@ class App extends Component{
       <div className="App">
       <header className="App-header">
         <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} handleExperience={this.handleExperience} experienceRay= {this.state.experienceRay} addExperience = {this.addExperience} deleteExperience={this.deleteExperience} handleEducation = {this.handleEducation} educationRay = {this.state.educationRay}/>
-      
+        <DisplayParent basicInfo = {this.state.basicInfo} experienceRay={this.state.experienceRay} educationRay={this.state.educationRay} />
     
       </header>
     </div>

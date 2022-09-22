@@ -4,6 +4,7 @@ import React, {Component} from "react";
 import FormParent from "./components/FormParent.js"
 import uniqid from "uniqid"
 import DisplayParent from "./components/DisplayParent.js"
+import './components/styles.css'
 
 class App extends Component{
   constructor(){
@@ -135,11 +136,10 @@ class App extends Component{
   render(){
     return(
       <div className="App">
-      <header className="App-header">
         <FormParent basicInfo={this.state.basicInfo} handleInfo = {this.handleInfo} handleExperience={this.handleExperience} experienceRay= {this.state.experienceRay} addExperience = {this.addExperience} deleteExperience={this.deleteExperience} handleEducation = {this.handleEducation} educationRay = {this.state.educationRay}/>
         <DisplayParent basicInfo = {this.state.basicInfo} experienceRay={this.state.experienceRay} educationRay={this.state.educationRay} />
     
-      </header>
+      
     </div>
     )
   }

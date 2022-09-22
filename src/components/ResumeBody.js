@@ -1,5 +1,6 @@
 import React, {Component} from "react"
-import ExperienceDisplay from "./ExperienceDisplay"
+import ExperienceDisplay from "./ExperienceDisplay.js"
+import SchoolDisplay from "./SchoolDisplay.js"
 
 class ResumeBody extends Component{
     constructor(props){
@@ -19,7 +20,16 @@ class ResumeBody extends Component{
                         )
                     })}
                 </div>
-                
+                <div className="schools">
+                    <div className="title">Education:</div>
+                    {education.map(school =>{
+                        return(
+                            <div key={school.id}>
+                                <SchoolDisplay school = {school} />
+                            </div>
+                        )
+                    })}
+                </div>
 
             </div>
         )

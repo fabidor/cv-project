@@ -7,7 +7,7 @@ class Experience extends Component{
     render(){
         const{experience, handleExperience, deleteExperience} = this.props
         return(
-            <form>
+            <form className="form">
                 <input type="text" name={experience.id} id="jobTitle" onChange={handleExperience} value={experience.jobTitle} placeholder="Job Title:" />
                 <input type="text" name={experience.id} id="company" onChange={handleExperience} value={experience.company} placeholder="Company: " />
                 <input type="text" name={experience.id} id="city" onChange={handleExperience} value={experience.city} placeholder="City:"/>

@@ -9,7 +9,7 @@ class ResumeBody extends Component{
     render(){
         const{experiences, education} = this.props
         return(
-            <div>
+            <div className="centralDetails">
                 <div className="experiences">
                     <div className="title">Work Experience:</div>
                     {experiences.map(experience => {

@@ -16,9 +16,8 @@ class DisplayParent extends Component{
                     <div className="leftWing">
                         <ExtraInfoDisplay basicInfo={basicInfo} />
                     </div>
-                    <div className="resumeBody">
                         <ResumeBody experiences = {experienceRay} education = {educationRay} />
-                    </div>
+                    
                  </div>
             </div>
             )

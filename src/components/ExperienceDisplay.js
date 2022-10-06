@@ -8,11 +8,10 @@ class ExperienceDisplay extends Component{
         const {experience} = this.props
         return(
             <div className="experienceDisplay">
-                <div>{experience.company}</div>
-                <div>{experience.jobTitle}</div>
-                <div>{experience.city}</div>
-                <div>{experience.from} - {experience.to}</div>
-                <div>{experience.description}</div>
+                <div className="jobTitle">{experience.jobTitle}</div>
+                <div className="companyAndCity">{experience.company} {experience.city}</div>
+                <div className="workDates">{experience.from} - {experience.to}</div>
+                <div className="description">{experience.description}</div>
             </div>
         )
     }

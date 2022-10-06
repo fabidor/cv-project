@@ -47,3 +47,75 @@
 .addBtn{
     width: 40%
 }
+
+.resumeDisplay{
+    background-color: white;
+    display: grid;
+    grid-template-rows: 2fr 9fr;
+    color: black;
+}
+
+.basicInfo{
+    grid-row: 1/2;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    padding: 8px;
+    background-color: teal;
+    color: white;
+    
+}
+
+.resumeBody{
+    display: grid;
+    grid-template-columns: 1fr 4fr; 
+}
+
+.centralDetails{
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.experienceDisplay{
+    display: grid;
+    grid-template-columns: 2fr 9fr;
+    grid-template-rows: 2fr 1fr auto;
+    padding: 10px;
+    
+}
+
+.jobTitle{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.companyAndCity{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 12px;
+}
+
+.description{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 15px;
+}
+
+.workDates{
+    grid-column: 1/2;
+    grid-row: 1/4;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+

@@ -8,11 +8,9 @@ class SchoolDisplay extends Component{
         const {school} = this.props;
         return(
             <div className="schoolDisplay">
-                <div>{school.school}</div>
-                <div>{school.degType}</div>
-                <div>{school.field}</div>
-                <div>{school.from}-{school.to}</div>
-
+                <div className="schoolName">{school.school}</div>
+                <div className="degree">{school.degType} {school.field} </div>
+                <div className="schoolDates">{school.from}-{school.to}</div>
             </div>
         )
     }

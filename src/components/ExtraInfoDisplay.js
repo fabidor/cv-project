@@ -7,17 +7,17 @@ class ExtraInfoDisplay extends Component{
     render(){
         const {basicInfo} = this.props
         return(
-            <div>
+            <div className="extraInfo">
                 <div className = "phone">
-                    <div>Phone Number:</div>
+                    <div className="subHeading">Phone Number:</div>
                     <div>{basicInfo.phone}</div>
                 </div>
                 <div className="address">
-                    <div>Address:</div>
+                    <div className="subHeading">Address:</div>
                     <div>{basicInfo.address}</div>
                 </div>
                 <div className="email">
-                    <div>Email:</div>
+                    <div className="subHeading">Email:</div>
                     <div>{basicInfo.email}</div>
                 </div>
             </div>

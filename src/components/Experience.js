@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class Experience extends Component{
+/*class Experience extends Component{
     constructor(props){
         super(props);
     }
@@ -20,6 +20,21 @@ class Experience extends Component{
         )
     }
 
+}
+*/
+
+const Experience = (props) =>{
+    return(
+        <form className="form">
+                <input type="text" name={props.experience.id} id="jobTitle" onChange={props.handleExperience} value={props.experience.jobTitle} placeholder="Job Title:" />
+                <input type="text" name={props.experience.id} id="company" onChange={props.handleExperience} value={props.experience.company} placeholder="Company: " />
+                <input type="text" name={props.experience.id} id="city" onChange={props.handleExperience} value={props.experience.city} placeholder="City:"/>
+                <input type="text" name={props.experience.id} id="from" onChange={props.handleExperience} value={props.experience.from} placeholder="From:" />
+                <input type="text" name={props.experience.id} id="to" onChange={props.handleExperience} value={props.experience.to} placeholder="To: " />
+                <input type="text" name={props.experience.id} id="description" onChange={props.handleExperience} value={props.experience.description} placeholder="Description: " />
+                <button onClick ={props.deleteExperience} id={props.experience.id}>Remove Experience</button>
+            </form>
+    )
 }
 
 export default Experience;

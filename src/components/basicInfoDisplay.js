@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class BasicInfoDisplay extends Component{
+/*class BasicInfoDisplay extends Component{
     constructor(props){
         super(props);
     }
@@ -13,6 +13,17 @@ class BasicInfoDisplay extends Component{
             </div>
         )
     }
-}
+} */
+
+function BasicInfoDisplay(props){
+    const basicInfo = props.basicInfo;
+    return(
+        <div className="basicInfo">
+            <div id="nameDisplay">{basicInfo.name}</div>
+            <div id="title">{basicInfo.title}</div>
+        </div>
+    )
+
+}   
 
 export default BasicInfoDisplay;

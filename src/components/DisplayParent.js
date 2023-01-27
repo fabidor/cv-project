@@ -3,7 +3,7 @@ import BasicInfoDisplay from "./basicInfoDisplay.js"
 import ExtraInfoDisplay from "./ExtraInfoDisplay.js"
 import ResumeBody from "./ResumeBody.js"
 
-class DisplayParent extends Component{
+/*class DisplayParent extends Component{
     constructor(props){
         super(props);
     }
@@ -23,6 +23,21 @@ class DisplayParent extends Component{
             )
     } 
     
+} */
+
+const DisplayParent = (props) =>{
+    return(
+        <div className="resumeDisplay">
+             <BasicInfoDisplay basicInfo = {props.basicInfo} />
+             <div className="resumeBody">
+                <div className="leftWing">
+                    <ExtraInfoDisplay basicInfo={props.basicInfo} />
+                </div>
+                    <ResumeBody experiences = {props.experienceRay} education = {props.educationRay} />
+                
+             </div>
+        </div>
+        )
 }
 
 export default DisplayParent;

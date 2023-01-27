@@ -1,19 +1,13 @@
-import React, {Component} from "react";
+import React from "react";
 
-class ExperienceDisplay extends Component{
-    constructor(props){
-        super(props);
-    }
-    render(){
-        const {experience} = this.props
-        return(
-            <div className="experienceDisplay">
-                <div className="jobTitle">{experience.jobTitle}</div>
-                <div className="companyAndCity">{experience.company} {experience.city}</div>
-                <div className="workDates">{experience.from} - {experience.to}</div>
-                <div className="description">{experience.description}</div>
-            </div>
-        )
-    }
+const ExperienceDisplay = (props) => {
+    return(
+        <div className="experienceDisplay">
+            <div className="jobTitle">{props.experience.jobTitle}</div>
+            <div className="companyAndCity">{props.experience.company} {props.experience.city}</div>
+            <div className="workDates">{props.experience.from} - {props.experience.to}</div>
+            <div className="description">{props.experience.description}</div>
+        </div>
+    )
 }
 export default ExperienceDisplay;

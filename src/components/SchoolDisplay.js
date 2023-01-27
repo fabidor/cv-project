@@ -1,19 +1,15 @@
-import React, {Component} from "react";
+import React from "react";
 
-class SchoolDisplay extends Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
-        const {school} = this.props;
-        return(
-            <div className="schoolDisplay">
-                <div className="schoolName">{school.school}</div>
-                <div className="degree">{school.degType} {school.field} </div>
-                <div className="schoolDates">{school.from}-{school.to}</div>
-            </div>
-        )
-    }
+
+
+const SchoolDisplay = (props) =>{
+    return(
+        <div className="schoolDisplay">
+            <div className="schoolName">{props.school.school}</div>
+            <div className="degree">{props.school.degType} {props.school.field} </div>
+            <div className="schoolDates">{props.school.from}-{props.school.to}</div>
+        </div>
+    )
 }
 
 export default SchoolDisplay;

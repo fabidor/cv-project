@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {Component} from "react";
+import React, {Component, useState, useEffect} from "react";
 import FormParent from "./components/FormParent.js"
 import uniqid from "uniqid"
 import DisplayParent from "./components/DisplayParent.js"
 import './components/styles.css'
 
-class App extends Component{
+/*class App extends Component{
   constructor(){
     super();
     this.state={
@@ -143,6 +143,127 @@ class App extends Component{
     </div>
     )
   }
+  
+} */
+
+const App = () => {
+  const [basicInfo, updateInfo] = useState(
+    {name: '',
+      phone:'',
+      title:'',
+      address:'',
+      email: ''})
+  const [experienceRay, updateExperience] = useState([{
+    jobTitle: '',
+    company: '',
+    city: '',
+    from: '',
+    to: '',
+    description: '',
+    id: uniqid()
+  }])
+  const [educationRay, updateSchool] = useState(
+    [{
+      school: '',
+      degType: '',
+      field: '',
+      from: '',
+      to: '',
+      id: uniqid()
+    }]
+  )
+
+  const handleInfo = (e) =>{
+    updateInfo({
+      ...basicInfo,
+      [e.target.id]: e.target.value
+       }
+     )
+  }
+  const handleExperience=(e) =>{
+    let experiences = experienceRay;
+    
+    let rayId = e.target.name;
+    let experience = experiences.find(({id}) => id === rayId)
+    let experienceIndex = experiences.indexOf(experience);
+    experience[e.target.id] = e.target.value;
+    experiences[experienceIndex] = experience;
+    updateExperience(
+       [...experiences]
+    )
+  }
+  
+  const addExperience = () => {
+    const exp =  {
+      jobTitle:"",
+      company:'',
+      city:'',
+      from:'',
+      to:'',
+      description:'',
+      id:uniqid()
+    }
+    updateExperience(
+      [...experienceRay.concat(exp)] //be wary of this?
+    )
+  }
+  const deleteExperience = (e) =>{
+    let experience = experienceRay.find(({id}) => id === e.target.id
+    )
+    let experienceIndex=experienceRay.indexOf(experience);
+    let experiences = [...experienceRay]
+    experiences.splice(experienceIndex, 1);
+    updateExperience(
+      [...experiences]
+    )
+  }
+  const handleEducation = (() =>{
+    const addEducation = () =>{
+      const educ =  {
+          school: '',
+          degType: '',
+          field: '',
+          from: '',
+          to: '',
+          id:uniqid()
+        }
+        updateSchool(
+          [...educationRay.concat(educ)]
+        )
+        
+      }
+      const updateEducation = (e) =>{
+        let schools = [...educationRay];
+        let rayId = e.target.name;
+        let school = schools.find(({id}) => id === rayId)
+        let schoolIndex = schools.indexOf(school);
+        school[e.target.id] = e.target.value;
+        schools[schoolIndex] = school;
+        
+        updateSchool(
+          [...schools]
+        )
+      }
+      const deleteSchool = (e) => {
+        let school = educationRay.find(({id}) => id === e.target.id)
+    let schoolIndex=educationRay.indexOf(school);
+    let schools = [...educationRay]
+    schools.splice(schoolIndex, 1);
+    updateSchool(
+      [...schools]
+    )
+      }
+      return {addEducation, updateEducation, deleteSchool};
+      
+    })();
+    return(
+      <div className="App">
+        <FormParent basicInfo={basicInfo} handleInfo = {handleInfo} handleExperience={handleExperience} experienceRay= {experienceRay} addExperience = {addExperience} deleteExperience={deleteExperience} handleEducation = {handleEducation} educationRay = {educationRay}/>
+        <DisplayParent basicInfo = {basicInfo} experienceRay={experienceRay} educationRay={educationRay} />
+    
+      
+    </div>
+    )
 }
 
 export default App;
